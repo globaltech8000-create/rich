@@ -75,3 +75,10 @@ if __name__ == "__main__":
     result = render()
     print(result)
     print(repr(result))
+
+from io import StringIO
+
+
+def test_columns_width_zero_division():
+    console = Console(file=StringIO(), width=16, force_terminal=True, color_system=None)
+    console.print(Columns([f"file_{i:02d}.txt" for i in range(8)], width=16))
