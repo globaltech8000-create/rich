@@ -121,8 +121,8 @@ class Columns(JupyterMixin):
         table.title = self.title
 
         if self.width is not None:
-            column_count = (max_width) // (self.width + width_padding)
-            for _ in range(column_count):
+             column_count = max(1, (max_width) // (self.width + width_padding))
+             for _ in range(column_count):
                 table.add_column(width=self.width)
         else:
             while column_count > 1:
